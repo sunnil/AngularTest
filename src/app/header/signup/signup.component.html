@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h5 class="card-title">SignUp Firstly !</h5>
+        </div>
+        <div class="card-body">
+          <form #signupForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" required [ngClass]="{ 'is-invalid': submitted && signupForm.firstName.errors }" />
+              <div *ngIf="submitted && signupForm.firstName.errors" class="invalid-feedback">
+                <div *ngIf="signupForm.firstName.errors.required">First Name is required</div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" required >
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="model.email" required >
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="model.password" required >
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success float-left">Sign Up</button>
+              <p class="float-right">You have already an account ! Please <a routerLink="../login">Login</a> </p>
+            </div>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <pre>{{signupForm.value | json}}</pre> -->
